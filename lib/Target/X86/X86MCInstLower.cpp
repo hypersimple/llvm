@@ -103,6 +103,18 @@ namespace llvm {
                TM.getSubtarget<X86Subtarget>().is64Bit(), STI);
     }
   }
+  
+  
+  
+  
+  //newnew
+  void X86AsmPrinter::emitPadding(MCStreamer &OutStreamer, const MCSubtargetInfo &STI) {
+      EmitNops(OutStreamer, 4,
+               TM.getSubtarget<X86Subtarget>().is64Bit(), STI);
+  }
+  
+  
+  
 
   void X86AsmPrinter::EmitAndCountInstruction(MCInst &Inst) {
     OutStreamer.EmitInstruction(Inst, getSubtargetInfo());
