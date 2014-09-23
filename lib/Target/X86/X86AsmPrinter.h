@@ -70,6 +70,11 @@ class LLVM_LIBRARY_VISIBILITY X86AsmPrinter : public AsmPrinter {
 
   StackMapShadowTracker SMShadowTracker;
 
+  
+  //newnew
+  void emitPadding(MCStreamer &OutStreamer, const MCSubtargetInfo &STI);
+  
+
   // All instructions emitted by the X86AsmPrinter should use this helper
   // method.
   //
@@ -103,6 +108,11 @@ class LLVM_LIBRARY_VISIBILITY X86AsmPrinter : public AsmPrinter {
   void EmitInstruction(const MachineInstr *MI) override;
 
   void EmitBasicBlockEnd(const MachineBasicBlock &MBB) override {
+    
+    //newnew    
+    emitPadding(OutStreamer, getSubtargetInfo());
+    
+    
     SMShadowTracker.emitShadowPadding(OutStreamer, getSubtargetInfo());
   }
 
