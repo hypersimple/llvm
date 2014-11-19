@@ -109,7 +109,7 @@ namespace llvm {
   
   //newnew
   void X86AsmPrinter::emitPadding(MCStreamer &OutStreamer, const MCSubtargetInfo &STI) {
-      EmitNops(OutStreamer, 4,
+      EmitNops(OutStreamer, 5,
                TM.getSubtarget<X86Subtarget>().is64Bit(), STI);
   }
   
