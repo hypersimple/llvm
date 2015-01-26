@@ -793,7 +793,8 @@ void AsmPrinter::EmitFunctionBody() {
         }
       }
     }
-
+    
+    //newnew  this is not added by me, but very important for lower version modification (like LLVM 3.5.1 or lower)
     EmitBasicBlockEnd(MBB);
   }
 
